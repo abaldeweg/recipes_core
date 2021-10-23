@@ -1,0 +1,92 @@
+<p><img src="{{ logo }}" width="200"/></p>
+
+<h1>Speiseplan für die {{ week }}. Kalenderwoche vom {{ startDate }} bis {{ endDate }}</h1>
+
+{% set courses = ['', 'Salad', 'Vegetarian', 'Main Course', 'Dessert'] %}
+{% set days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] %}
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th width="100" class="row"></th>
+    <th class="row"><strong>  {{ courses[1] }}</strong></th>
+    <th class="row"><strong>  {{ courses[2] }}</strong></th>
+    <th class="row"><strong>  {{ courses[3] }}</strong></th>
+    <th class="row"><strong>  {{ courses[4] }}</strong></th>
+  </tr>
+
+  {% for day in 0..4 %}
+  <tr>
+    <td class="row"><strong>{{ days[day] }}</strong><br><strong>{{ data[day].date }}</strong></td>
+    <td class="row">
+      <table cellpadding="0">
+        <tr>
+          <td height="50">{{- data[day][1] ? data[day][1].meal.name : null }}</td>
+        </tr>
+        <tr>
+          <td height="70">{{- data[day][1] ? data[day][1].meal.description : null }}</td>
+        </tr>
+        <tr>
+          <td class="price">{{ data[day][1] ? data[day][1].meal.price : null }} {% if (data[day][1]) %}EUR{% endif %}</td>
+        </tr>
+      </table>
+    </td>
+    <td class="row">
+      <table cellpadding="0">
+        <tr>
+          <td height="50">{{- data[day][2] ? data[day][2].meal.name : null }}</td>
+        </tr>
+        <tr>
+          <td height="70">{{- data[day][2] ? data[day][2].meal.description : null }}</td>
+        </tr>
+        <tr>
+          <td class="price">{{ data[day][2] ? data[day][2].meal.price : null }} {% if (data[day][2]) %}EUR{% endif %}</td>
+        </tr>
+      </table>
+    </td>
+    <td class="row">
+      <table cellpadding="0">
+        <tr>
+          <td height="50">{{- data[day][3] ? data[day][3].meal.name : null }}</td>
+        </tr>
+        <tr>
+          <td height="70">{{- data[day][3] ? data[day][3].meal.description : null }}</td>
+        </tr>
+        <tr>
+          <td class="price">{{ data[day][3] ? data[day][3].meal.price : null }} {% if (data[day][3]) %}EUR{% endif %}</td>
+        </tr>
+      </table>
+    </td>
+    <td class="row">
+      <table cellpadding="0">
+        <tr>
+          <td height="50">{{- data[day][4] ? data[day][4].meal.name : null }}</td>
+        </tr>
+        <tr>
+          <td height="70">{{- data[day][4] ? data[day][4].meal.description : null }}</td>
+        </tr>
+        <tr>
+          <td class="price">{{ data[day][4] ? data[day][4].meal.price : null }} {% if (data[day][4]) %}EUR{% endif %}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>{{ footer }}</p>
+
+<style>
+table {
+  font-size: 11px;
+}
+.price {
+  text-align: right;
+  font-weight: bold;
+}
+h1 {
+  font-size: 17px;
+}
+p {
+  font-size: 12px;
+}
+</style>

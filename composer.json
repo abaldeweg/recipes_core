@@ -1,0 +1,93 @@
+{
+    "type": "project",
+    "name": "baldeweg/recipes_core",
+    "description": "Management and export of menus.",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.0",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "baldeweg/api-bundle": "^0.3.3",
+        "baldeweg/extra-bundle": "^0.6.0",
+        "composer/package-versions-deprecated": "1.11.99.2",
+        "doctrine/doctrine-bundle": "^2.4",
+        "doctrine/doctrine-migrations-bundle": "^3.1",
+        "doctrine/orm": "^2.9",
+        "gesdinet/jwt-refresh-token-bundle": "^0.12.0",
+        "lexik/jwt-authentication-bundle": "^2.12",
+        "nelmio/cors-bundle": "^2.1",
+        "sensio/framework-extra-bundle": "^6.1",
+        "symfony/console": "5.3.*",
+        "symfony/dotenv": "5.3.*",
+        "symfony/expression-language": "5.3.*",
+        "symfony/filesystem": "5.3.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/form": "5.3.*",
+        "symfony/framework-bundle": "5.3.*",
+        "symfony/monolog-bundle": "^3.7",
+        "symfony/proxy-manager-bridge": "5.3.*",
+        "symfony/runtime": "5.3.*",
+        "symfony/security-bundle": "5.3.*",
+        "symfony/twig-bundle": "5.3.*",
+        "symfony/validator": "5.3.*",
+        "symfony/yaml": "5.3.*",
+        "tecnickcom/tcpdf": "^6.4",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "5.3.*"
+        }
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "mikey179/vfsstream": "^1.6",
+        "rector/rector": "^0.11.60",
+        "symfony/browser-kit": "5.3.*",
+        "symfony/debug-bundle": "5.3.*",
+        "symfony/maker-bundle": "^1.33",
+        "symfony/phpunit-bridge": "^5.3"
+    }
+}
