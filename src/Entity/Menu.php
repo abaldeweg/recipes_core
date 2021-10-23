@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use App\Repository\MenuRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\Meal;
-use App\Entity\Plan;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

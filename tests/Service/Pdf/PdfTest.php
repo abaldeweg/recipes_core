@@ -14,8 +14,8 @@ class PdfTest extends TestCase
         $dest = vfsStream::url('root');
 
         $pdf = new PdfUtility();
-        $pdf->render('Title', 'content', $dest . '/file');
+        $pdf->render('Title', 'content', $dest.'/file');
 
-        $this->assertTrue(is_file($dest . '/file.pdf'));
+        $this->assertTrue(is_file($dest.'/file.pdf'));
     }
 }

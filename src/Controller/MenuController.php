@@ -41,7 +41,7 @@ class MenuController extends AbstractApiController
                 ['plan' => $request->get('plan')],
                 [
                     'day' => 'ASC',
-                    'course' => 'ASC'
+                    'course' => 'ASC',
                 ]
             )
         );

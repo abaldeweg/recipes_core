@@ -3,8 +3,8 @@
 namespace App\Service\Plan;
 
 use App\Service\Pdf\PdfUtility;
-use Twig\Environment;
 use Symfony\Component\Filesystem\Filesystem;
+use Twig\Environment;
 
 class Plan implements PlanInterface
 {
@@ -27,11 +27,11 @@ class Plan implements PlanInterface
                 'plan.html.twig',
                 $data
             ),
-            $dest . '/' . $filename
+            $dest.'/'.$filename
         );
 
         // json
-        \file_put_contents($dest . '/' . $filename . '.json', json_encode($data['data']));
+        \file_put_contents($dest.'/'.$filename.'.json', json_encode($data['data']));
 
         return true;
     }

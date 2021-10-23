@@ -39,7 +39,7 @@ class PlanController extends AbstractApiController
             $this->fields,
             $this->getDoctrine()->getRepository(Plan::class)->findOneBy([
                 'year' => $request->get('year'),
-                'week' => $request->get('week')
+                'week' => $request->get('week'),
             ])
         );
     }

@@ -16,6 +16,6 @@ class PdfUtility
         $pdf->writeHTML($content, true, false, true, false, '');
         $pdf->lastPage();
 
-        return $pdf->Output($filename . '.pdf', 'F');
+        return $pdf->Output($filename.'.pdf', 'F');
     }
 }

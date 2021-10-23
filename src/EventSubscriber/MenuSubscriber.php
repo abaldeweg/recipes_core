@@ -2,12 +2,12 @@
 
 namespace App\EventSubscriber;
 
-use Doctrine\ORM\Events;
-use Doctrine\Persistence\Event\LifecycleEventArgs;
-use Doctrine\Bundle\DoctrineBundle\EventSubscriber\EventSubscriberInterface;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Menu;
 use App\Service\Plan\Plan;
+use Doctrine\Bundle\DoctrineBundle\EventSubscriber\EventSubscriberInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Events;
+use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class MenuSubscriber implements EventSubscriberInterface
@@ -44,13 +44,13 @@ class MenuSubscriber implements EventSubscriberInterface
 
     protected function render(Menu $menu): void
     {
-        $dest = __DIR__ . '/../../public/export/';
-        $filename = $menu->getPlan()->getYear() . '-' . $menu->getPlan()->getWeek();
+        $dest = __DIR__.'/../../public/export/';
+        $filename = $menu->getPlan()->getYear().'-'.$menu->getPlan()->getWeek();
         $data = $this->em->getRepository(Menu::class)->findBy(
             ['plan' => $menu->getPlan()->getId()],
             [
                 'day' => 'ASC',
-                'course' => 'ASC'
+                'course' => 'ASC',
             ]
         );
 
@@ -69,7 +69,7 @@ class MenuSubscriber implements EventSubscriberInterface
                 'week' => $menu->getPlan()->getWeek(),
                 'startDate' => $startDate->format('d.m.Y'),
                 'endDate' => $startDate->modify('+4 days')->format('d.m.Y'),
-                'data' => $data
+                'data' => $data,
             ]
         );
     }
